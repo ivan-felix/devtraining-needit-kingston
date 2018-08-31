@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="task" label="Student Records " max_length="40" name="x_58872_needit_student_records" type="collection">
+        <element attributes="omit_sys_original=true,serializer=com.glide.script.PriceXMLSerializer" label="Amount Paid" mandatory="true" max_length="20" name="u_amount_paid_sr" type="price"/>
+        <element attributes="edge_encryption_enabled=true" label="Checked By" max_length="40" name="u_checked_by" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="First Name" mandatory="true" max_length="40" name="u_first_name_sr" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Name" mandatory="true" max_length="40" name="u_last_name_sr" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Other" max_length="40" name="u_other_sr" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="algebra" label="Selected Lesson" mandatory="true" max_length="40" name="u_selected_lesson_sr" type="string">
+            <choice>
+                <element label="Algebra" sequence="0" value="algebra"/>
+                <element label="Calculus" sequence="1" value="calculus"/>
+                <element label="Geometry" sequence="2" value="geometry"/>
+                <element label="Speech" sequence="3" value="speech"/>
+                <element label="Poetry" sequence="4" value="poetry"/>
+                <element label="Biology" sequence="5" value="biology"/>
+                <element label="Physics" sequence="6" value="physics"/>
+                <element label="Other" sequence="7" value="other"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="math" label="Subject Category" mandatory="true" max_length="40" name="u_subject_category_sr" type="string">
+            <choice>
+                <element label="Math" sequence="0" value="math"/>
+                <element label="English" sequence="1" value="english"/>
+                <element label="Science" sequence="2" value="science"/>
+                <element label="Your Choice" sequence="3" value="your choice"/>
+            </choice>
+        </element>
+        <element attributes="omit_sys_original=true,serializer=com.glide.script.PriceXMLSerializer" label="Subject Fee" max_length="20" name="u_subject_fee_sr" read_only="true" type="price"/>
+        <element attributes="omit_sys_original=true,serializer=com.glide.script.PriceXMLSerializer" label="Total Balance" max_length="20" name="u_total_balance_sr" read_only="true" type="price"/>
+    </element>
+</database>

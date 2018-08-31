@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Only display selected lesson choices that match the subject category value</description>
+        <field>u_subject_category_sr</field>
+        <global>true</global>
+        <messages/>
+        <name>Selected Lesson Option</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+		if ( newValue == '') {
+			return;
+		}
+
+		var selectedLesson = g_form.getValue('u_selected_lesson_sr');
+
+		// Clear all of the choices from the What needed field choice list
+		g_form.clearOptions('u_selected_lesson_sr');
+
+		// If the the value of the Request type field is hr, add
+		// two hr choices and other to the What needed field choice list
+		if(newValue == 'math'){
+			g_form.addOption('u_selected_lesson_sr','algebra','Algebra');
+			g_form.addOption('u_selected_lesson_sr','calculus','Calculus');
+			g_form.addOption('u_selected_lesson_sr','geometry','Geometry');
+			g_form.addOption('u_selected_lesson_sr','other','Other');
+		}
+		// If the the value of the Request type field is facilities, add
+		// two facilities choices and other to the What needed field
+		// choice list
+	if(newValue == 'english'){
+			g_form.addOption('u_selected_lesson_sr','speech','Speech');
+			g_form.addOption('u_selected_lesson_sr','poetry','Poetry');
+			g_form.addOption('u_selected_lesson_sr','other','Other');
+		}
+		// If the the value of the Request type field is legal, add
+		// two legal choices and other to the What needed field
+		// choice list
+		if(newValue == 'science'){
+			g_form.addOption('u_selected_lesson_sr','biology','Biology');
+			g_form.addOption('u_selected_lesson_sr','physics','Physics');
+			g_form.addOption('u_selected_lesson_sr','other','Other');
+		}
+	
+			if(newValue == 'your choice'){
+		    g_form.addOption('u_selected_lesson_sr','algebra','Algebra');
+			g_form.addOption('u_selected_lesson_sr','calculus','Calculus');
+			g_form.addOption('u_selected_lesson_sr','geometry','Geometry');
+			g_form.addOption('u_selected_lesson_sr','speech','Speech');
+			g_form.addOption('u_selected_lesson_sr','poetry','Poetry');
+			g_form.addOption('u_selected_lesson_sr','biology','Biology');
+			g_form.addOption('u_selected_lesson_sr','physics','Physics');	
+			g_form.addOption('u_selected_lesson_sr','other','Other');	
+	
+			
+		}
+
+		// If the form is loading and it is not a new record, set the u_what_needed value to the
+		// value from the record before it was loaded
+		if(isLoading && !g_form.isNewRecord()){
+			g_form.setValue('u_selected_lesson_sr', selectedlesson);
+		
+			
+		}
+	}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-31 10:46:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ef5ba48d4fd0230004d2f9aba310c7b0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Selected Lesson Option</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_ef5ba48d4fd0230004d2f9aba310c7b0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-31 10:53:17</sys_updated_on>
+        <table>x_58872_needit_student_records</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
